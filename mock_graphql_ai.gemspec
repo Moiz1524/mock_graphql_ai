@@ -19,6 +19,12 @@ Gem::Specification.new do |spec|
   # spec.add_runtime_dependency 'graphql', '~> 2.0', '>= 2.0.19'
   spec.add_runtime_dependency 'ruby-openai', '~> 3.5'
 
+  spec.add_development_dependency 'rails', '~> 6.1.5.1'
+  spec.add_development_dependency 'rake', '~> 13.0.3'
+  spec.add_development_dependency 'rspec-rails', '~> 6.0.0'
+  spec.add_development_dependency 'simplecov', '~> 0.20.0'
+
+  # Rubocop dependencies
   spec.add_development_dependency 'rubocop', '~> 1.48', '>= 1.48.1'
   spec.add_development_dependency 'rubocop-performance', '~> 1.16'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.19'
