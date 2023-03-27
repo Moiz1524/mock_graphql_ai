@@ -1,14 +1,13 @@
 PATH
   remote: .
   specs:
-    mock_graphql_ai (1.0.0)
-      ruby-openai (~> 0.1.0)
+    mock_graphql_ai (1.0.1)
+      ruby-openai (~> 3.5)
 
 GEM
   remote: http://rubygems.org/
   specs:
     ast (2.4.2)
-    dotenv (2.7.6)
     httparty (0.18.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -43,9 +42,8 @@ GEM
     rubocop-rspec (2.19.0)
       rubocop (~> 1.33)
       rubocop-capybara (~> 2.17)
-    ruby-openai (0.1.4)
-      dotenv (~> 2.7.6)
-      httparty (~> 0.18.1)
+    ruby-openai (3.7.0)
+      httparty (>= 0.18.1)
     ruby-progressbar (1.13.0)
     unicode-display_width (2.4.2)
 
