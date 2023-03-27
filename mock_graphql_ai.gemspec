@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = ['README.md']
 
   # spec.add_runtime_dependency 'graphql', '~> 2.0', '>= 2.0.19'
-  spec.add_runtime_dependency 'ruby-openai', '~> 0.1.0'
+  spec.add_runtime_dependency 'ruby-openai', '~> 3.5'
 
   spec.add_development_dependency 'rubocop', '~> 1.48', '>= 1.48.1'
   spec.add_development_dependency 'rubocop-performance', '~> 1.16'
