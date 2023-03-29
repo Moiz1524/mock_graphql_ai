@@ -4,6 +4,6 @@ module Mockable
   private
 
   def bypass_graphql
-    redirect_to(imitate_path(query: params[:query]))
+    redirect_to(imitate_graphql_path(query: params[:query]))
   end
 end
