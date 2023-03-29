@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mock_graphql_ai (1.0.1)
+    mock_graphql_ai (1.0.2)
       ruby-openai (~> 3.5)
 
 GEM
@@ -219,7 +219,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  dotenv-rails
+  dotenv-rails (~> 2.8, >= 2.8.1)
   graphql (~> 2.0, >= 2.0.11)
   mock_graphql_ai!
   rails (~> 6.1.5.1)
