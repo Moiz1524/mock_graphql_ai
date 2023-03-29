@@ -10,5 +10,5 @@ measurement/*
 pkg/*
 .DS_Store
 .env
-spec/dummy/tmp/*
-spec/dummy/log/*.log
+spec/host_app/tmp/*
+spec/host_app/log/*.log
