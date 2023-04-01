@@ -82,3 +82,15 @@ end
 
 This gem requires Ruby 2.6+
 Also it requires [graphql]('https://github.com/rmosolgo/graphql-ruby') to override its ability to generate responses. Rails 6.x or plus recommended
+
+### License
+
+Check out LICENSE file in project's root
+
+### Want to Contribute?
+
+Check out CONTRIBUTING.md and the docs directory.
+
+### To generate a PULL Request:
+
+Check out PULL_REQUEST_TEMPLATE.md
