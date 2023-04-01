@@ -1,5 +1,10 @@
 class GraphqlMocksController < ApplicationController
   def imitate
-    render json: { "data" => { "query" => params[:query], "say" => "Here we'll send Mock API response!" } }    
+    result = MockGraphqlAi::Resource.new(
+      query: params[:query],
+      token: "add-openai-access-token-here" # Rails.application.credentials.dig(:openai, :access_token) 
+    ).respond!
+
+    render json: result
   end 
 end
