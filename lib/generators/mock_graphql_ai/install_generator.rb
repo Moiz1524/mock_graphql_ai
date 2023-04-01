@@ -8,21 +8,21 @@ module MockGraphqlAi
       source_root(File.expand_path('../templates', __dir__))
 
       def copy_module_file
-        copy_file('mockable.rb', 'spec/host_app/app/controllers/concerns/mockable.rb')
+        copy_file('mockable.rb', 'app/controllers/concerns/mockable.rb')
       end
 
       def copy_controller_file
-        copy_file('graphql_mocks_controller.rb', 'spec/host_app/app/controllers/graphql_mocks_controller.rb')
+        copy_file('graphql_mocks_controller.rb', 'app/controllers/graphql_mocks_controller.rb')
       end
       
       def copy_model_file
-        copy_file('mock_graphql_response.rb', 'spec/host_app/app/models/mock_graphql_response.rb')
+        copy_file('mock_graphql_response.rb', 'app/models/mock_graphql_response.rb')
       end
 
       def copy_migration
         migration_template(
           'migration.rb', 
-          'spec/host_app/db/migrate/create_mock_graphql_responses.rb', 
+          'db/migrate/create_mock_graphql_responses.rb', 
           migration_version: migration_version
         )
       end
