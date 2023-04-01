@@ -20,7 +20,7 @@ It is built over OpenAI's ruby library i.e., `ruby-openai`. Make sure to follow 
 
 Add this to your Gemfile
 
-```bash
+```ruby
 gem 'mock_graphql_ai', '~> 1.1'
 ```
 
@@ -30,7 +30,7 @@ Run `bundle install`
 
 In order to add mock files you have to run install generator
 
-```bash
+```ruby
 rails g mock_graphql_ai:install
 ```
 It'll do the following changes:
@@ -41,7 +41,7 @@ It'll do the following changes:
 - Add the respective migration for model with attributes
 - Add a mock route inside `routes.rb`
 
-```bash
+```ruby
   get '/imitate_graphql', to: 'graphql_mocks#imitate', as: :imitate_graphql
 ```
 
@@ -51,7 +51,7 @@ It'll do the following changes:
 
 Include mockable module inside `graphql_controller` and add a before filter to bypass the `#execute`
 
-```bash
+```ruby
 class GraphqlController < ApplicationController
   include Mockable
   
@@ -64,7 +64,7 @@ end
 ```
 If you notice the code inside `graphql_mocks_controller` there is a simple API call to service that generates the responses and persist them for future use
 
-```bash
+```ruby
 class GraphqlMocksController < ApplicationController
   def imitate
     result = MockGraphqlAi::Resource.new(
