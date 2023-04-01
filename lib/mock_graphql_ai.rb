@@ -4,7 +4,7 @@ require 'graphql'
 
 module MockGraphqlAi
   class Resource
-    attr_accessor :query, :client, :openai_access_token, :response
+    attr_accessor :query, :type, :name, :client, :openai_access_token, :response
 
     def initialize(options={})
       @query = options[:query]
@@ -14,7 +14,7 @@ module MockGraphqlAi
     end
   
     def respond!
-      type, name = grab_query_details
+      @type, @name = grab_query_details
       initiate_openai_client
       get_response_from_ai
     end
@@ -31,6 +31,8 @@ module MockGraphqlAi
       end
 
       def get_response_from_ai
+        return mock_response.data if mock_response
+        
         @response = client.chat(
           parameters: {
             model: @model,
@@ -43,7 +45,12 @@ module MockGraphqlAi
           }
         )
 
+        persist_response! if complete_model_output?
         response.dig("choices", 0, "message", "content")
+      end
+
+      def mock_response
+        MockGraphqlResponse.find_by(name: name, req_type: type)
       end
 
       def instructions_to_model
@@ -58,13 +65,22 @@ module MockGraphqlAi
         - I want real data instead of empty collection back to consume within my React Frontend app
         - Avoid errors because I have to parse data back to JSON"
       end
+
+      def persist_response!
+        MockGraphqlResponse.create(
+          data: @response.dig("choices", 0, "message", "content"),
+          name: name,
+          req_type: type,
+          output_mode: figure_output_mode 
+        )
+      end
       
       def complete_model_output?
         @response.dig("choices", 0, "finish_reason") == "stop"
       end
 
       def figure_output_mode
-        finish_reason = @response.dig("choices", 0, "finish_reason")
+        finish_reason = response.dig("choices", 0, "finish_reason")
 
         reasons_mapper = {
           "length" => :token_limit,
